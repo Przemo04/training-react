@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import events from './data/events.json';
+import mapEvents from './Events';
 
 
-ReactDOM.render(<ul>
-	{events.map(item =>{
-		return (
-			<li key={item.id}>{item.name}{item.id}</li>
-		);
-	})}
-</ul>, document.getElementById('root'));
+
+ReactDOM.render(mapEvents(events), document.getElementById('root'));
