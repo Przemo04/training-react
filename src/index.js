@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import events from './data/events.json';
-import mapEvents from './Events';
+import Events from './Events';
 
 
 
-ReactDOM.render(mapEvents(events), document.getElementById('root'));
+ReactDOM.render(<Events dane={events}/>, document.getElementById('root'));

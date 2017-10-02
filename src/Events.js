@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const getEvents = (events) => {
+const Events = (props) => {
 return(	<ul>
-		{events.map(item =>{
+		{props.dane.map(item =>{
 
 			const date = new Date(item.date);
 
 			if (date <= Date.now()){
 				return (
 					<li key={item.id}>{item.name}Price:{item.id}</li>
-
 				);
 			}
 		})}
@@ -19,4 +18,4 @@ return(	<ul>
 	);
 };
 
-export default getEvents;
+export default Events;
