@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import events from './data/events.json';
-import Events from './Events';
+import State from './State';
 
 
 
-ReactDOM.render(<Events dane={events}/>, document.getElementById('root'));
+ReactDOM.render(<State />, document.getElementById('root'));

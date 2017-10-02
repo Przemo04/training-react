@@ -1,21 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+
+class Events extends React.Component{
 
 
-const Events = (props) => {
-return(	<ul>
-		{props.dane.map(item =>{
+	render(){
 
-			const date = new Date(item.date);
+		return(
+			<ul>
+					{this.props.dane.map(item =>{
 
-			if (date <= Date.now()){
-				return (
-					<li key={item.id}>{item.name}Price:{item.id}</li>
-				);
-			}
-		})}
-	</ul>
-	);
+						const date = new Date(item.date);
+
+						if (date <= Date.now()){
+							return (
+								<li key={item.id}>{item.name}Price:{item.id}</li>
+							);
+						}
+					})}
+				</ul>
+		);
+	}
 };
+
+Events.PropTypes = {
+	dane: PropTypes.array.isRequired
+};
+
 
 export default Events;
