@@ -10,10 +10,17 @@ class Events extends React.Component{
 		this.state = {
 			events: []
 		};
+		this.handleClick = this.handleClick.bind(this);
 	}
 	componentDidMount() {
 		this.setState({
 			events
+		});
+	}
+	handleClick(event) {
+		event.preventDefault();
+		this.setState({
+			events: []
 		});
 	}
 
@@ -31,6 +38,9 @@ class Events extends React.Component{
 							);
 						}
 					})}
+					<button onClick={this.handleClick}>
+						Wyczysc
+					</button>
 				</ul>
 		);
 	}
