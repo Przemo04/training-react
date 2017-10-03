@@ -1,15 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+
+import events from './data/events.json';
 
 class Events extends React.Component{
 
+	constructor(props){
+		super(props);
+		this.state = {
+			events: []
+		};
+	}
+	componentDidMount() {
+		this.setState({
+			events
+		});
+	}
 
 	render(){
 
 		return(
 			<ul>
-					{this.props.dane.map(item =>{
+					{this.state.events.map(item =>{
 
 						const date = new Date(item.date);
 
@@ -22,10 +34,6 @@ class Events extends React.Component{
 				</ul>
 		);
 	}
-};
-
-Events.PropTypes = {
-	dane: PropTypes.array.isRequired
 };
 
 
