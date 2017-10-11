@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import events from './data/events.json';
 
+import EventItem from './EventItem';
+
 class Events extends React.Component{
 
 	constructor(props){
@@ -48,13 +50,7 @@ class Events extends React.Component{
 						const date = new Date(item.date);
 
 						if (date <= Date.now()){
-							return (
-								<li key={item.id}>{item.name}Price:{item.id}
-									<button onClick={this.onDeleteElement.bind(this, item.id)}>
-										usuń
-									</button>
-								</li>
-							);
+							return <EventItem item={item} onDeleteElement={this.onDeleteElement.bind(this)}/>
 						}
 					})}
 					<button onClick={this.handleClick}>
