@@ -24,6 +24,21 @@ class Events extends React.Component{
 		});
 	}
 
+	handleClick(event) {
+		event.preventDefault();
+		this.setState({
+			events: []
+		});
+	}
+
+	onDeleteElement(itemId, event){
+		event.preventDefault();
+		const filteredArrat = this.state.events.filter(item => item.id !== itemId);
+		this.setState({
+			events: filteredArrat
+		});
+	}
+
 	render(){
 
 		return(
@@ -34,14 +49,19 @@ class Events extends React.Component{
 
 						if (date <= Date.now()){
 							return (
-								<li key={item.id}>{item.name}Price:{item.id}</li>
+								<li key={item.id}>{item.name}Price:{item.id}
+									<button onClick={this.onDeleteElement.bind(this, item.id)}>
+										usuń
+									</button>
+								</li>
 							);
 						}
 					})}
 					<button onClick={this.handleClick}>
-						Wyczysc
+						Wyczyść wszystko
 					</button>
 				</ul>
+
 		);
 	}
 };
