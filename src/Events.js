@@ -5,6 +5,7 @@ import events from './data/events.json';
 
 import EventItem from './EventItem';
 import EventsFilter from './EventsFilter';
+import AddEvent from './AddEvent';
 
 class Events extends React.Component{
 
@@ -12,7 +13,11 @@ class Events extends React.Component{
 		super(props);
 		this.state = {
 			events: [],
-			filter: ''
+			filter: '',
+			newName: '',
+			newDate: '',
+			newTime: '',
+			newPlace: ''
 		};
 		this.handleClick = this.handleClick.bind(this);
 	}
@@ -50,6 +55,52 @@ class Events extends React.Component{
 		});
 	}
 
+onEventAdd(event) {
+	event.preventDefault();
+	const {
+		events,
+		newName,
+		newPlace,
+		newDate,
+		newTime
+	} = this.state;
+
+	const maxId = Math.max(...events.map(item => item.id));
+
+	events.push({
+		id: maxId + 1,
+		name: newName,
+		place: newPlace,
+		date: newDate,
+		time: newTime,
+	});
+
+	this.setState({
+		events
+	});
+}
+
+onFieldChange(field, event) {
+	const value = event.currentTarget.value;
+
+	this.setState({
+		[field]: value
+	});
+}
+
+	// onSubmit(event){
+	// 	const place = event.currentTarget.place;
+	// 	const date = event.currentTarget.date;
+	// 	const time = event.currentTarget.time;
+	// 	const name = event.currentTarget.name;
+	//
+	// 	this.setState({
+	// 		newPlace,
+	// 		newDate,
+	// 		newTime,
+	// 		newName
+	// 	});
+	// }
 	render(){
 
 		return(
@@ -66,6 +117,13 @@ class Events extends React.Component{
 					<button onClick={this.handleClick}>
 						Wyczyść wszystko
 					</button>
+					<AddEvent name={this.state.name}
+						place={this.state.newPlace}
+						date={this.state.newDate}
+						time={this.state.newTime}
+						onFieldChange={this.onFieldChange.bind(this)}
+						onFormSubmit={this.onEventAdd.bind(this)}>
+					</AddEvent>
 				</ul>
 
 		);
