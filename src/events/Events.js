@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import events from './data/events.json';
+import events from '../data/events.json';
 
 import EventItem from './EventItem';
 import EventsFilter from './EventsFilter';

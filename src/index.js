@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Events from './Events';
+import App from './App';
 
-
-
-
-ReactDOM.render(<Events />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
