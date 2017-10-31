@@ -5,12 +5,14 @@ import {
 } from 'react-router-dom';
 
 import Events from './events/Events';
+import Details from './details/Details';
 
 const App = () => {
 	return(
 		<Router>
 			<div>
-				<Route path="/" component={Events} />
+				<Route exact path="/" component={Events} />
+				<Route path="/details/:eventId" component={Details} />
 			</div>
 		</Router>
 	);

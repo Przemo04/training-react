@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EventItem = (props) => {
 		return(
@@ -6,6 +7,7 @@ const EventItem = (props) => {
 				<button onClick={props.onDeleteElement.bind(this, props.item.id)}>
 					usuń
 				</button>
+				<Link to={'/details/' + props.item.id}>Szczegoly</Link>
 			</li>
 		);
 };
